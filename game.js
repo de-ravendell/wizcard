@@ -1218,6 +1218,7 @@ class CardGame {
                         else { this.log(`${creature.name}(${atk}) attacked you(${this.hp[1]}).`,'warning'); await this.dealDamageToPlayer(atk); this.visualEffect('t5','damage'); }
                     };
                     await performAttack();
+                    await sleep(300);
                     await this.knightExtraAttack(creature,performAttack);
                 } else if (creature.attack>0 && this.hasCreatureStatus(creature,"disarm")) { this.log(`${creature.name} is disarmed and cannot attack!`,'warning'); this.removeCreatureStatus(creature,"disarm"); }
                 else if (creature.attack>0 && this.hasCreatureStatus(creature,"stun")) { this.log(`${creature.name} is stunned and cannot attack!`,'warning'); this.removeCreatureStatus(creature,"stun"); }
@@ -1507,7 +1508,7 @@ class CardGame {
     getPreferredTileForCreature(cardName, side=2) {
         let empty = side===1?this.getEmptyAllyTiles():this.getEmptyEnemyTiles();
         if (empty.length===0) return null;
-        const front = ["Troll","Piertotum Locomotor","Runic Armor"];
+        const front = ["Troll","Piertotum Locomotor","Runic Armor","Chess Pawn"];
         let order;
         if (side===2) order = (front.includes(cardName))?[13,10,16,11,17,12,18,15]:[15,12,18,11,17,10,16,13];
         else order = (front.includes(cardName))?[6,3,9,2,8,1,7,4]:[4,1,7,2,8,3,9,6];
