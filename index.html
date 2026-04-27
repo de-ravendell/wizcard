@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.php">
+    <title>WIZCARD | DE RAVENDELL</title>
+</head>
+<body>
+<div style="flex:1"></div>
+<div class="sub-body">
+    <h1>WIZCARD</h1>
+    <div class="turn-indicator" id="turn-indicator">Choose Your Champion</div>
+    <div class="grids">
+        <div id="left" class="grid-container">
+            <div class="com">BACK</div><div class="com">MIDDLE</div><div class="com">FRONT</div>
+            <div class="tile-container" id="tc1"><div class="tile-tooltip-container"><div class="tile" id="t1" onclick="t(1)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-1"></span></div><div class="flag-overlay left-tile-flag" id="tf11" onclick="flag1(1,1)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc2"><div class="tile-tooltip-container"><div class="tile" id="t2" onclick="t(2)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-2"></span></div><div class="flag-overlay left-tile-flag" id="tf12" onclick="flag1(1,2)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc3"><div class="tile-tooltip-container"><div class="tile" id="t3" onclick="t(3)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-3"></span></div><div class="flag-overlay left-tile-flag" id="tf13" onclick="flag1(1,3)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc4"><div class="tile-tooltip-container"><div class="tile" id="t4" onclick="t(4)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-4"></span></div><div class="flag-overlay left-tile-flag" id="tf21" onclick="flag1(2,1)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc5"><div class="tile-tooltip-container"><div class="tile" id="t5" onclick="t(5)"><div class="wizard-info"><div>Wizard</div><div class="hp-bar"><div class="hp-fill" id="left-hp-fill"></div></div><div id="left-hp-text"></div><div class="mana-bar"><div class="mana-fill" id="left-mana-fill"></div></div><div id="left-mana-text"></div><div id="status-1" class="status-effect"></div></div></div><span class="tile-tooltip-text" id="tile-tooltip-5"></span></div><div class="flag-overlay left-tile-flag" id="tf22" onclick="flag1(2,2)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc6"><div class="tile-tooltip-container"><div class="tile" id="t6" onclick="t(6)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-6"></span></div><div class="flag-overlay left-tile-flag" id="tf23" onclick="flag1(2,3)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc7"><div class="tile-tooltip-container"><div class="tile" id="t7" onclick="t(7)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-7"></span></div><div class="flag-overlay left-tile-flag" id="tf31" onclick="flag1(3,1)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc8"><div class="tile-tooltip-container"><div class="tile" id="t8" onclick="t(8)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-8"></span></div><div class="flag-overlay left-tile-flag" id="tf32" onclick="flag1(3,2)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc9"><div class="tile-tooltip-container"><div class="tile" id="t9" onclick="t(9)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-9"></span></div><div class="flag-overlay left-tile-flag" id="tf33" onclick="flag1(3,3)"><i class="fas fa-flag"></i></div></div>
+        </div>
+        <div class="rowf-grid"><div></div><div class="rowf left-row-flag" id="rowf1" onclick="rowf1(1)"><i class="fas fa-flag"></i></div><div class="rowf left-row-flag" id="rowf2" onclick="rowf1(2)"><i class="fas fa-flag"></i></div><div class="rowf left-row-flag" id="rowf3" onclick="rowf1(3)"><i class="fas fa-flag"></i></div></div>
+        <div class="divider"></div>
+        <div class="rowf-grid"><div></div><div class="rowf right-row-flag" id="rowf4" onclick="rowf2(1)"><i class="fas fa-flag"></i></div><div class="rowf right-row-flag" id="rowf5" onclick="rowf2(2)"><i class="fas fa-flag"></i></div><div class="rowf right-row-flag" id="rowf6" onclick="rowf2(3)"><i class="fas fa-flag"></i></div></div>
+        <div id="right" class="grid-container">
+            <div class="com">FRONT</div><div class="com">MIDDLE</div><div class="com">BACK</div>
+            <div class="tile-container" id="tc10"><div class="tile-tooltip-container"><div class="tile" id="t10" onclick="t(10)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-10"></span></div><div class="flag-overlay right-tile-flag" id="tf14" onclick="flag2(1,4)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc11"><div class="tile-tooltip-container"><div class="tile" id="t11" onclick="t(11)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-11"></span></div><div class="flag-overlay right-tile-flag" id="tf15" onclick="flag2(1,5)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc12"><div class="tile-tooltip-container"><div class="tile" id="t12" onclick="t(12)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-12"></span></div><div class="flag-overlay right-tile-flag" id="tf16" onclick="flag2(1,6)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc13"><div class="tile-tooltip-container"><div class="tile" id="t13" onclick="t(13)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-13"></span></div><div class="flag-overlay right-tile-flag" id="tf24" onclick="flag2(2,4)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc14"><div class="tile-tooltip-container"><div class="tile" id="t14" onclick="t(14)"><div class="wizard-info"><div>Wizard</div><div class="hp-bar"><div class="hp-fill" id="right-hp-fill"></div></div><div id="right-hp-text"></div><div class="mana-bar"><div class="mana-fill" id="right-mana-fill"></div></div><div id="right-mana-text"></div><div id="status-2" class="status-effect"></div></div></div><span class="tile-tooltip-text" id="tile-tooltip-14"></span></div><div class="flag-overlay right-tile-flag" id="tf25" onclick="flag2(2,5)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc15"><div class="tile-tooltip-container"><div class="tile" id="t15" onclick="t(15)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-15"></span></div><div class="flag-overlay right-tile-flag" id="tf26" onclick="flag2(2,6)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc16"><div class="tile-tooltip-container"><div class="tile" id="t16" onclick="t(16)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-16"></span></div><div class="flag-overlay right-tile-flag" id="tf34" onclick="flag2(3,4)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc17"><div class="tile-tooltip-container"><div class="tile" id="t17" onclick="t(17)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-17"></span></div><div class="flag-overlay right-tile-flag" id="tf35" onclick="flag2(3,5)"><i class="fas fa-flag"></i></div></div>
+            <div class="tile-container" id="tc18"><div class="tile-tooltip-container"><div class="tile" id="t18" onclick="t(18)">Empty</div><span class="tile-tooltip-text" id="tile-tooltip-18"></span></div><div class="flag-overlay right-tile-flag" id="tf36" onclick="flag2(3,6)"><i class="fas fa-flag"></i></div></div>
+        </div>
+    </div>
+    <div class="main-hp-bar"><div class="main-hp-fill" id="main-hp-fill"></div><div class="main-hp-text" id="main-hp-text"></div></div>
+    <div class="main-mana-bar"><div class="main-mana-fill" id="main-mana-fill"></div><div class="main-mana-text" id="main-mana-text"></div></div>
+    <div class="hand-container"><div class="hand-grid"><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-1" onclick="handCardClick(1)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-1"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-2" onclick="handCardClick(2)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-2"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-3" onclick="handCardClick(3)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-3"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-4" onclick="handCardClick(4)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-4"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-5" onclick="handCardClick(5)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-5"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-6" onclick="handCardClick(6)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-6"></span></div><div class="hand-card-tooltip-container"><div class="hand-card" id="hand-card-7" onclick="handCardClick(7)"></div><span class="hand-card-tooltip-text" id="hand-tooltip-7"></span></div></div></div>
+    <div style="display: flex">
+        <button class="restart-btn" onclick="restartGame()" style="margin: 15px; padding: 12px 28px; background: linear-gradient(145deg, #2ecc71, #27ae60); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);">Restart Game</button>
+        <button class="end-turn-btn" onclick="endTurn()">End Turn</button>
+    </div>
+</div>
+<div class="game-over-overlay" id="game-over-overlay"><div class="game-over-box"><h2 id="game-over-text">Game Over</h2><button class="restart-btn" onclick="restartGame()">Restart Game</button></div></div>
+<div class="log-wrapper" style="flex: 1.2; display: flex; flex-direction: column; padding-top: 5vh; height: 85vh">
+    <div style="display: flex; justify-content: center; padding-left: 15px; padding-right: 15px; margin-bottom: 8px;">
+        <button class="log-info-btn" onclick="openInfoOverlay()" style="background: linear-gradient(145deg, #2a3a4a, #1a2a3a); color: #ffd966; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 30px; padding: 6px 18px; font-size: 13px; font-weight: bold; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: inline-flex; align-items: strech; gap: 8px; text-align: center;"><i class="fas fa-scroll"></i> Game Info</button>
+    </div>
+    <div class="log-container">
+        <div class="log-header"><span>📜 Battle Log</span><button class="log-clear-btn" onclick="clearLog()">Clear</button></div>
+        <div class="log-content" id="log-content"><div class="log-entry">Welcome to WIZCARD. Choose your champion.</div></div>
+    </div>
+</div>
+<div id="characterSelectOverlay" class="character-overlay">
+    <div class="character-panel">
+        <h2>✨ Choose Your Wizard ✨</h2>
+        <div class="character-choices" id="characterChoices"></div>
+        <p style="margin-top:25px; color:#aaa;">Enemy wizard will be chosen at random from the legends.</p>
+    </div>
+</div>
+<div id="infoOverlay" class="info-overlay" style="display: none;">
+    <div class="info-panel">
+        <div class="info-panel-header">
+            <span>⚡ WIZCARD · Wizard Duelling Guide ⚡</span>
+            <button class="info-close-btn" onclick="closeInfoOverlay()">✕</button>
+        </div>
+        <div class="info-panel-content">
+            <div class="info-section">
+                <div class="info-section-title">📜 Core Rules</div>
+                <ul>
+                    <li>Each wizard has <strong>50 Health</strong> and starts with <strong>6 Mana</strong>. Gain <strong>6 Mana</strong> at the start of each turn (max 12).</li>
+                    <li>You <strong>always</strong> have <strong>7</strong> cards in hand. After playing a card, immediately draw one from your deck (unless you gained a card by other means).</li>
+                    <li>Reduce the opponent wizard's Health to <strong>0</strong> to win.</li>
+                    <li>The battlefield is a <strong>3x3 grid</strong>. Front, middle, and back rows determine attack order and targeting.</li>
+                    <li>Each turn: play any number of cards → wizard attacks → all creatures attack → end turn.</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-section-title">🃏 Card Types</div>
+                <ul>
+                    <li><span class="info-badge spell">🔥 Spell</span> — Deal damage, apply status effects, heal, or summon special effects.</li>
+                    <li><span class="info-badge creature">🐉 Creature</span> — Summon to the board. They attack each turn and may have passive abilities.</li>
+                    <li><span class="info-badge equip">👓 Equipment</span> — Provide lasting buffs or powerful one‑time effects.</li>
+                    <li><span class="info-badge secret">🤫 Secret</span> — Trigger automatically when conditions are met, consuming mana.</li>
+                    <li><span class="info-badge token">✨ Token</span> — Copy cards generated by abilities or specific cards. They do not go to the discard pile.</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-section-title">⚡ Elemental Reactions (Core Combo Mechanic)</div>
+                <div class="reaction-table">
+                    <div class="reaction-row"><span class="reaction-combo">🔥 Burnt + 💧 Soaked</span> → <strong>4 direct damage</strong> (to target wizard or creature)</div>
+                    <div class="reaction-row"><span class="reaction-combo">💧 Soaked + ⚡ Shocked</span> → <strong>2 damage + Stun</strong> (skips next attack)</div>
+                    <div class="reaction-row"><span class="reaction-combo">⚡ Shocked + 🔥 Burnt</span> → <strong>2 damage</strong> and splash <strong>1 damage</strong> to other enemies</div>
+                </div>
+                <p style="margin-top: 8px; font-size: 0.85rem;">※ When both statuses are present, the reaction triggers immediately and removes both.</p>
+            </div>
+
+            <div class="info-section">
+                <div class="info-section-title">🏆 Champion Abilities</div>
+                <div class="character-table">
+                    <div class="char-row"><span class="champion-name">Harry Potter</span> — Spells costing 3 or less are cast twice (same target).</div>
+                    <div class="char-row"><span class="champion-name">Hermione Granger</span> — After casting a spell, reduce the mana cost of a random spell in your hand by 25% (rounded down).</div>
+                    <div class="char-row"><span class="champion-name">Ron Weasley</span> — When summoning a creature, grant a random permanent buff: +1 ATK / 25% double attack / +2 HP.</div>
+                    <div class="char-row"><span class="champion-name">Albus Dumbledore</span> — Every fourth spell you cast gives you a token copy with half mana cost. 5% chance to summon a Phoenix when casting a spell.</div>
+                    <div class="char-row"><span class="champion-name">Gellert Grindelwald</span> — Every 6 cards played summon an Acolyte. Your spells cost 1 less mana but cost 1 HP. Acolytes repeat spells by spending HP equal to the original cost. Ally deaths trigger Protego Diabolica.</div>
+                    <div class="char-row"><span class="champion-name">Vinda Rosier</span> — Damaging the enemy wizard has 25% chance to inflict Fear (+1 mana cost to a random hand card). Killing any enemy gives 2 mana and Vindictiveness (+1 damage next attack). After dealing 20 total damage, summon an Acolyte.</div>
+                    <div class="char-row"><span class="champion-name">Luna Lovegood</span> — Every 5 mana spent summons a random beast. Every 10th summon summons an additional Thestral. You can always see Thestrals (no Spectrespecs needed).</div>
+                    <div class="char-row"><span class="champion-name">Newt Scamander</span> — When you summon a non‑token creature, gain a free Niffler token in hand.</div>
+                    <div class="char-row"><span class="champion-name">Minerva McGonagall</span> — When you cast a spell, 40% chance to transfigure a random enemy creature into a Teacup (1 HP, 0 ATK). If no enemy creatures exist, cast Piertotum Locomotor instead.</div>
+                </div>
+                <p style="margin-top: 8px; font-size: 0.8rem; color: #aaa;">※ Some abilities track hidden counters (spell count, mana spent, etc.). Hover over the wizard tile to see progress.</p>
+            </div>
+
+            <div class="info-section">
+                <div class="info-section-title">🌀 Status Effects Quick Reference</div>
+                <ul>
+                    <li><strong>Disarm</strong> — Cannot attack or cast spells next turn (affects wizard/creature attacks).</li>
+                    <li><strong>Stun</strong> — Skips next attack for creatures, and gain 3 mana instead of 6 next turn for wizards.</li>
+                    <li><strong>Bleed</strong> — Takes 1~2 damage at end of turn.</li>
+                    <li><strong>Heal</strong> — Restores 1~2 health at end of turn.</li>
+                    <li><strong>Fear</strong> — A random card in hand costs +1 mana for 2 turns.</li>
+                    <li><strong>Unseen (Thestral)</strong> — Cannot play Thestral unless you wear Spectrespecs or are Luna.</li>
+                    <li><strong>Runic Ward</strong> — Absorbs the next instance of damage.</li>
+                    <li><strong>Obscurus / Obscurial</strong> — Transforms the wizard, doubling damage taken but also doubling attack power.</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-section-title">🎮 Controls & Tips</div>
+                <ul>
+                    <li>Click a card in hand to select it → click a <span class="highlight-flag">flag</span> on the board (valid targets are highlighted) to play it.</li>
+                    <li>Click empty space or outside the board to cancel selection.</li>
+                    <li><strong>Hover</strong> over any card, creature, or wizard to see detailed description and current status.</li>
+                    <li>The "Retreat" button on your creatures returns them to your deck and gives +1 mana immediately.</li>
+                    <li>Elemental reactions are key to turning the tide. Try to combine low‑cost elemental spells.</li>
+                    <li>Each champion's special counters (e.g., Dumbledore's spell count, Luna's mana spent) are shown when hovering over the wizard tile.</li>
+                </ul>
+            </div>
+
+            <div class="info-footer">
+                <i class="fas fa-magic"></i> Strategy over luck — may the better wizard win <i class="fas fa-hat-wizard"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="game.php"></script>
+</body>
+</html>
